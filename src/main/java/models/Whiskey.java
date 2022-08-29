@@ -9,6 +9,19 @@ public class Whiskey {
     private Double price;
     private Integer quantity;
 
+    public Whiskey() {
+    }
+
+    public Whiskey(Long id, String name, String brand, String description, Double size, Double price, Integer quantity) {
+        this.id = id;
+        this.name = name;
+        this.brand = brand;
+        this.description = description;
+        this.size = size;
+        this.price = price;
+        this.quantity = quantity;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
