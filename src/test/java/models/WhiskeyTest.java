@@ -38,4 +38,38 @@ public class WhiskeyTest {
         Assertions.assertEquals(expectedPrice, actualPrice);
         Assertions.assertEquals(expectedQuantity, actualQuantity);
     }
+
+    @Test
+    public void testWhiskeyConstructor() {
+        //given
+        Long expectedId = 6L;
+        String expectedName = "Whiskey";
+        String expectedBrand = "Jameson";
+        String expectedDescription = "Jameson Whiskey";
+        Double expectedSize = 10D;
+        Double expectedPrice = 100D;
+        Integer expectedQuantity = 10;
+
+        //when
+        Whiskey whiskey = new Whiskey(expectedId, expectedName, expectedBrand,
+                expectedDescription, expectedSize, expectedPrice, expectedQuantity);
+
+        Long actualId = whiskey.getId();
+        String actualName = whiskey.getName();
+        String actualBrand = whiskey.getBrand();
+        String actualDescription = whiskey.getDescription();
+        Double actualSize = whiskey.getSize();
+        Double actualPrice = whiskey.getPrice();
+        Integer actualQuantity = whiskey.getQuantity();
+
+        //then
+        Assertions.assertEquals(expectedId, actualId);
+        Assertions.assertEquals(expectedName, actualName);
+        Assertions.assertEquals(expectedBrand, actualBrand);
+        Assertions.assertEquals(expectedDescription, actualDescription);
+        Assertions.assertEquals(expectedSize, actualSize);
+        Assertions.assertEquals(expectedPrice, actualPrice);
+        Assertions.assertEquals(expectedQuantity, actualQuantity);
+
+    }
 }

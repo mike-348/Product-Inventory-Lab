@@ -12,6 +12,22 @@ public class Sneaker {
     private Double price;
     private Integer quantity;
 
+    public Sneaker() {
+    }
+
+    public Sneaker(Long id, String name, String brand,
+                   String color, String sport, Double size,
+                   Double price, Integer quantity) {
+        this.id = id;
+        this.name = name;
+        this.brand = brand;
+        this.color = color;
+        this.sport = sport;
+        this.size = size;
+        this.price = price;
+        this.quantity = quantity;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
