@@ -15,10 +15,9 @@ public class Sneaker {
     public Sneaker() {
     }
 
-    public Sneaker(Long id, String name, String brand,
+    public Sneaker(String name, String brand,
                    String color, String sport, Double size,
                    Double price, Integer quantity) {
-        this.id = id;
         this.name = name;
         this.brand = brand;
         this.color = color;
@@ -26,6 +25,9 @@ public class Sneaker {
         this.size = size;
         this.price = price;
         this.quantity = quantity;
+    }
+
+    public void setId(int i) {
     }
 
     public void setName(String name) {

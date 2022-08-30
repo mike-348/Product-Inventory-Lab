@@ -60,7 +60,7 @@ public class SneakerTest {
         Integer expectedQuantity = 10;
 
         //when
-        Sneaker sneaker = new Sneaker(expectedId, expectedName, expectedBrand,
+        Sneaker sneaker = new Sneaker(expectedName, expectedBrand,
                 expectedColor, expectedSport, expectedSize, expectedPrice, expectedQuantity);
 
         Long actualId = sneaker.getId();
@@ -82,4 +82,5 @@ public class SneakerTest {
         Assertions.assertEquals(expectedPrice, actualPrice);
         Assertions.assertEquals(expectedQuantity, actualQuantity);
     }
+
 }
