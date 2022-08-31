@@ -53,7 +53,7 @@ public class SneakerServiceTest {
         SneakerService sneakerService = new SneakerService();
         sneakerService.create(sneaker);
 
-        Long id = sneaker.getId();
+        Integer id = sneaker.getId();
 
         //then
         Assertions.assertEquals(expectedName, sneakerService.find(id).getName());
@@ -83,7 +83,7 @@ public class SneakerServiceTest {
         SneakerService sneakerService = new SneakerService();
         sneakerService.create(sneaker);
 
-        Long id = sneaker.getId();
+        Integer id = sneaker.getId();
 
         String expectedName2 = "Nike Air Max";
         String expectedBrand2 = "Nike";
@@ -126,7 +126,7 @@ public class SneakerServiceTest {
         SneakerService sneakerService = new SneakerService();
         sneakerService.create(sneaker);
 
-        Long id = sneaker.getId();
+        Integer id = sneaker.getId();
         //then
         Assertions.assertEquals(expectedName, sneakerService.find(id).getName());
         Assertions.assertEquals(expectedBrand, sneakerService.find(id).getBrand());

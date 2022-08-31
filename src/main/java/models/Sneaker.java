@@ -1,9 +1,7 @@
 package models;
 
-import java.util.Date;
-
 public class Sneaker {
-    private Long id;
+    private Integer id;
     private String name;
     private String brand;
     private String color;
@@ -27,7 +25,8 @@ public class Sneaker {
         this.quantity = quantity;
     }
 
-    public void setId(int i) {
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public void setName(String name) {
@@ -58,7 +57,7 @@ public class Sneaker {
         this.quantity = quantity;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 

@@ -51,10 +51,10 @@ public class WhiskeyTest {
         Integer expectedQuantity = 10;
 
         //when
-        Whiskey whiskey = new Whiskey(expectedId, expectedName, expectedBrand,
+        Whiskey whiskey = new Whiskey(expectedName, expectedBrand,
                 expectedDescription, expectedSize, expectedPrice, expectedQuantity);
 
-        Long actualId = whiskey.getId();
+        Integer actualId = whiskey.getId();
         String actualName = whiskey.getName();
         String actualBrand = whiskey.getBrand();
         String actualDescription = whiskey.getDescription();

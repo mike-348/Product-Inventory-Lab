@@ -63,7 +63,7 @@ public class SneakerTest {
         Sneaker sneaker = new Sneaker(expectedName, expectedBrand,
                 expectedColor, expectedSport, expectedSize, expectedPrice, expectedQuantity);
 
-        Long actualId = sneaker.getId();
+        Integer actualId = sneaker.getId();
         String actualName = sneaker.getName();
         String actualBrand = sneaker.getBrand();
         String actualColor = sneaker.getColor();
