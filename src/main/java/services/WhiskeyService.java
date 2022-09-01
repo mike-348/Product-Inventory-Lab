@@ -1,7 +1,11 @@
 package services;
 
+import models.Sneaker;
 import models.Whiskey;
+import utils.CSVUtils;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,6 +64,25 @@ public class WhiskeyService {
             }
         }
         return false;
+    }
+
+    public void writeToFile() {
+        try {
+            String csvFile = "src/main/resources/whiskies.csv";
+            FileWriter writer = new FileWriter(csvFile);
+            List<Object> list = new ArrayList<>();
+            CSVUtils.writeLine(writer, list);
+            for (Whiskey w : inventory) {
+                list.add(w.toString());
+                CSVUtils.writeLine(writer, list);
+                list.clear();
+            }
+            writer.flush();
+            writer.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
 }
