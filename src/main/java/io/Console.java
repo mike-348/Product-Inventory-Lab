@@ -85,6 +85,7 @@ public class Console {
                     Integer quantity = readInt("Enter the quantity: ");
                     Whiskey whiskey = new Whiskey(brand, description, size, price, quantity);
                     whiskeyService.create(whiskey);
+                    whiskeyService.writeToFile();
                     break;
                 case 3:
                     int id = readInt("Enter the id: ");
@@ -168,6 +169,7 @@ public class Console {
                     Integer quantity = readInt("Enter the sneaker quantity");
                     Sneaker sneaker = new Sneaker(name, brand, color, sport, size, price, quantity);
                     sneakerService.create(sneaker);
+                    sneakerService.writeToFile();
                     break;
                 case 3:
                     Integer id = readInt("Enter the sneaker id");

@@ -1,7 +1,14 @@
 package services;
 
 import models.Sneaker;
+import utils.CSVUtils;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class SneakerService {
@@ -63,5 +70,24 @@ public class SneakerService {
             }
         }
         return false;
+    }
+
+    public void writeToFile() {
+        try {
+            String csvFile = "src/main/resources/sneakers.csv";
+            FileWriter writer = new FileWriter(csvFile);
+            List<Object> list = new ArrayList<>();
+            CSVUtils.writeLine(writer, list);
+            for (Sneaker s : inventory) {
+                list.add(s.toString());
+                CSVUtils.writeLine(writer, list);
+                list.clear();
+            }
+            writer.flush();
+            writer.close();
+            } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }
