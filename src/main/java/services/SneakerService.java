@@ -18,10 +18,11 @@ public class SneakerService {
     public Sneaker create(Sneaker sneaker) {
         sneaker.setId(inventory.size() + 1);
         inventory.add(sneaker);
+        System.out.println(inventory.size());
         return sneaker;
     }
 
-    public Sneaker find(Long id) {
+    public Sneaker find(Integer id) {
         for (Sneaker sneaker : inventory) {
             if (sneaker.getId().equals(id)) {
                 return sneaker;
@@ -30,7 +31,15 @@ public class SneakerService {
         return null;
     }
 
-    public Sneaker update(Sneaker sneaker, Long id) {
+    public Sneaker[] findAll() {
+        Sneaker[] sneakers = new Sneaker[inventory.size()];
+        for (int i = 0; i < inventory.size(); i++) {
+            sneakers[i] = inventory.get(i);
+        }
+        return sneakers;
+    }
+
+    public Sneaker update(Sneaker sneaker, Integer id) {
         for (Sneaker s : inventory) {
             if (s.getId().equals(id)) {
                 s.setName(sneaker.getName());
@@ -46,7 +55,7 @@ public class SneakerService {
         return null;
     }
 
-    public boolean delete(Long id) {
+    public boolean delete(Integer id) {
         for (Sneaker s : inventory) {
             if (s.getId().equals(id)) {
                 inventory.remove(s);
