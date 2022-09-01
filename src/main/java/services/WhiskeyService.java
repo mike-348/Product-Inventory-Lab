@@ -30,10 +30,17 @@ public class WhiskeyService {
         return null;
     }
 
+    public Whiskey[] findAll() {
+        Whiskey[] whiskeys = new Whiskey[inventory.size()];
+        for (int i = 0; i < inventory.size(); i++) {
+            whiskeys[i] = inventory.get(i);
+        }
+        return whiskeys;
+    }
+
     public Whiskey update(Whiskey whiskey, Integer id) {
         for (Whiskey w : inventory) {
             if (w.getId().equals(id)) {
-                w.setName(whiskey.getName());
                 w.setBrand(whiskey.getBrand());
                 w.setDescription(whiskey.getDescription());
                 w.setSize(whiskey.getSize());

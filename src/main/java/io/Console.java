@@ -1,13 +1,16 @@
 package io;
 
 import models.Sneaker;
+import models.Whiskey;
 import services.SneakerService;
+import services.WhiskeyService;
 
 import java.util.Scanner;
 
 public class Console {
 
     SneakerService sneakerService = new SneakerService();
+    WhiskeyService whiskeyService = new WhiskeyService();
 
     public static void main(String[] args) {
         Console console = new Console();
@@ -25,18 +28,98 @@ public class Console {
     }
 
     public void printProductMenu() {
-        Console console = new Console();
         int selection = -1;
         while(selection != 0) {
             selection = readInt("Please select a product:\n" +
                     "1. Sneakers\n" +
-                    "2. Whiskey");
+                    "2. Whiskey\n" +
+                    "0. Exit");
             switch (selection) {
                 case 1:
                     sneakerMenuSelect();
                     break;
                 case 2:
-                    //whiskeyMenu();
+                    whiskeyMenuSelect();
+                    break;
+                case 0:
+                    System.out.println("Goodbye!");
+                    System.exit(0);
+                    break;
+            }
+        }
+    }
+
+    public void printWhiskeyMenu() {
+        System.out.println("Please select an option:\n" +
+                "1. View all whiskies\n" +
+                "2. Add a new whiskey\n" +
+                "3. Find a whiskey\n" +
+                "4. Update a whiskey\n" +
+                "5. Delete a whiskey\n" +
+                "6. Previous menu\n" +
+                "0. Exit");
+    }
+
+    public void printWhiskies() {
+        Whiskey[] whiskeys = whiskeyService.findAll();
+        for (Whiskey w : whiskeys) {
+            System.out.println(w);
+        }
+    }
+
+    public void whiskeyMenuSelect() {
+        Console console = new Console();
+        int option = -1;
+        while(option != 0) {
+            console.printWhiskeyMenu();
+            option = readInt("Please select an option: ");
+            switch (option) {
+                case 1:
+                    printWhiskies();
+                    break;
+                case 2:
+                    String brand = readString("Enter the brand: ");
+                    String description = readString("Enter the description: ");
+                    Double size = readDouble("Enter the size: ");
+                    Double price = readDouble("Enter the price: ");
+                    Integer quantity = readInt("Enter the quantity: ");
+                    Whiskey whiskey = new Whiskey(brand, description, size, price, quantity);
+                    whiskeyService.create(whiskey);
+                    break;
+                case 3:
+                    int id = readInt("Enter the id: ");
+                    whiskey = whiskeyService.find(id);
+                    if (whiskey != null) {
+                        System.out.println(whiskey);
+                    } else {
+                        System.out.println("Whiskey not found");
+                    }
+                    break;
+                case 4:
+                    id = readInt("Enter the id: ");
+                    whiskey = whiskeyService.find(id);
+                    if (whiskey != null) {
+                        brand = readString("Enter the brand: ");
+                        description = readString("Enter the description: ");
+                        size = readDouble("Enter the size: ");
+                        price = readDouble("Enter the price: ");
+                        quantity = readInt("Enter the quantity: ");
+                        whiskey.setBrand(brand);
+                        whiskey.setDescription(description);
+                        whiskey.setSize(size);
+                        whiskey.setPrice(price);
+                        whiskey.setQuantity(quantity);
+                        whiskeyService.update(whiskey, id);
+                    } else {
+                        System.out.println("Whiskey not found");
+                    }
+                    break;
+                case 5:
+                    id = readInt("Enter the id: ");
+                    whiskeyService.delete(id);
+                    break;
+                case 6:
+                    console.printProductMenu();
                     break;
                 case 0:
                     System.out.println("Goodbye!");
@@ -113,7 +196,6 @@ public class Console {
                     }
                     break;
                 case 5:
-                    System.out.println("Enter the sneaker id:");
                     id = readInt("Enter the sneaker id");
                     sneakerService.delete(id);
                     break;

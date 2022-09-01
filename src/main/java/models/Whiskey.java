@@ -2,7 +2,6 @@ package models;
 
 public class Whiskey {
     private Integer id;
-    private String name;
     private String brand;
     private String description;
     private Double size;
@@ -12,8 +11,7 @@ public class Whiskey {
     public Whiskey() {
     }
 
-    public Whiskey(String name, String brand, String description, Double size, Double price, Integer quantity) {
-        this.name = name;
+    public Whiskey(String brand, String description, Double size, Double price, Integer quantity) {
         this.brand = brand;
         this.description = description;
         this.size = size;
@@ -23,10 +21,6 @@ public class Whiskey {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public void setBrand(String brand) {
@@ -53,10 +47,6 @@ public class Whiskey {
         return id;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public String getBrand() {
         return brand;
     }
@@ -79,6 +69,13 @@ public class Whiskey {
 
     @Override
     public String toString() {
-        return "Whiskey{" + "id=" + id + ", name=" + name + ", brand=" + brand + ", description=" + description + ", size=" + size + ", price=" + price + ", quantity=" + quantity + '}';
+        return "Whiskey{" +
+                "id=" + id +
+                ", brand='" + brand + '\'' +
+                ", description='" + description + '\'' +
+                ", size=" + size +
+                ", price=" + price +
+                ", quantity=" + quantity +
+                '}';
     }
 }

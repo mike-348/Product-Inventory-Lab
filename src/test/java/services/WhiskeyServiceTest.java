@@ -9,7 +9,7 @@ public class WhiskeyServiceTest {
     @Test
     public void testCreate() {
         WhiskeyService whiskeyService = new WhiskeyService();
-        Whiskey whiskey = new Whiskey("Whiskey", "Jameson", "Jameson Whiskey",
+        Whiskey whiskey = new Whiskey("Jameson", "Jameson Whiskey",
                 12.0, 12.0, 12);
         whiskeyService.create(whiskey);
         Assertions.assertEquals(1, whiskeyService.inventory.size());
@@ -18,7 +18,7 @@ public class WhiskeyServiceTest {
     @Test
     public void testFind() {
         WhiskeyService whiskeyService = new WhiskeyService();
-        Whiskey whiskey = new Whiskey("Whiskey", "Jameson", "Jameson Whiskey",
+        Whiskey whiskey = new Whiskey("Jameson", "Jameson Whiskey",
                 12.0, 12.0, 12);
         whiskeyService.create(whiskey);
         Assertions.assertEquals(whiskey, whiskeyService.find(1));
@@ -27,17 +27,16 @@ public class WhiskeyServiceTest {
     @Test
     public void testUpdate() {
         WhiskeyService whiskeyService = new WhiskeyService();
-        Whiskey whiskey = new Whiskey("Whiskey", "Jameson", "Jameson Whiskey",
+        Whiskey whiskey = new Whiskey("Jameson", "Jameson Whiskey",
                 12.0, 12.0, 12);
         whiskeyService.create(whiskey);
 
-        Whiskey whiskey2 = new Whiskey("Jack Daniels", "Jack Daniels", "Jack Daniels Whiskey",
+        Whiskey whiskey2 = new Whiskey("Jack Daniel's", "The finest whiskey in the world",
                 12.0, 12.00, 12);
         whiskeyService.create(whiskey2);
         whiskeyService.update(whiskey2, 1);
 
         Assertions.assertEquals(1, whiskey.getId());
-        Assertions.assertEquals("Jack Daniels", whiskeyService.find(1).getName());
         Assertions.assertEquals("Jack Daniels", whiskeyService.find(1).getBrand());
         Assertions.assertEquals("Jack Daniels Whiskey", whiskeyService.find(1).getDescription());
         Assertions.assertEquals(12.0, whiskeyService.find(1).getSize());
@@ -48,7 +47,7 @@ public class WhiskeyServiceTest {
     @Test
     public void testDelete() {
         WhiskeyService whiskeyService = new WhiskeyService();
-        Whiskey whiskey = new Whiskey("Whiskey", "Jameson", "Jameson Whiskey",
+        Whiskey whiskey = new Whiskey("Jameson", "Jameson Whiskey",
                 12.0, 12.0, 12);
         whiskeyService.create(whiskey);
         whiskeyService.delete(1);
