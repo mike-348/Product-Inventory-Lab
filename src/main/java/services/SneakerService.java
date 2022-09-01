@@ -18,6 +18,7 @@ public class SneakerService {
     public Sneaker create(Sneaker sneaker) {
         sneaker.setId(inventory.size() + 1);
         inventory.add(sneaker);
+        System.out.println(inventory.size());
         return sneaker;
     }
 
@@ -28,6 +29,14 @@ public class SneakerService {
             }
         }
         return null;
+    }
+
+    public Sneaker[] findAll() {
+        Sneaker[] sneakers = new Sneaker[inventory.size()];
+        for (int i = 0; i < inventory.size(); i++) {
+            sneakers[i] = inventory.get(i);
+        }
+        return sneakers;
     }
 
     public Sneaker update(Sneaker sneaker, Integer id) {

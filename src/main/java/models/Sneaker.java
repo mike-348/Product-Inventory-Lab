@@ -88,4 +88,17 @@ public class Sneaker {
     public Integer getQuantity() {
         return quantity;
     }
+
+    public String toString() {
+        return "Sneaker{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", brand='" + brand + '\'' +
+                ", color='" + color + '\'' +
+                ", sport='" + sport + '\'' +
+                ", size=" + size +
+                ", price=" + price +
+                ", quantity=" + quantity +
+                '}';
+    }
 }
