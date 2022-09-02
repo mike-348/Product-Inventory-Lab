@@ -14,6 +14,7 @@ public class Console {
 
     public static void main(String[] args) {
         Console console = new Console();
+        console.loadInventory();
         console.printWelcome();
         console.printProductMenu();
     }
@@ -47,6 +48,11 @@ public class Console {
                     break;
             }
         }
+    }
+
+    public void loadInventory() {
+        sneakerService.loadInventory();
+        whiskeyService.loadInventory();
     }
 
     public void printWhiskeyMenu() {
@@ -85,7 +91,6 @@ public class Console {
                     Integer quantity = readInt("Enter the quantity: ");
                     Whiskey whiskey = new Whiskey(brand, description, size, price, quantity);
                     whiskeyService.create(whiskey);
-                    whiskeyService.writeToFile();
                     break;
                 case 3:
                     int id = readInt("Enter the id: ");
@@ -123,6 +128,7 @@ public class Console {
                     console.printProductMenu();
                     break;
                 case 0:
+                    whiskeyService.writeToFile();
                     System.out.println("Goodbye!");
                     System.exit(0);
                     break;
@@ -169,7 +175,6 @@ public class Console {
                     Integer quantity = readInt("Enter the sneaker quantity");
                     Sneaker sneaker = new Sneaker(name, brand, color, sport, size, price, quantity);
                     sneakerService.create(sneaker);
-                    sneakerService.writeToFile();
                     break;
                 case 3:
                     Integer id = readInt("Enter the sneaker id");
@@ -202,10 +207,10 @@ public class Console {
                     sneakerService.delete(id);
                     break;
                 case 6:
-                    // go back to product menu
                     printProductMenu();
                     break;
                 case 0:
+                    sneakerService.writeToFile();
                     System.out.println("Goodbye!");
                     System.exit(0);
                     break;

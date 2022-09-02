@@ -1,9 +1,8 @@
 package utils;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Writer;
+import models.Sneaker;
+
+import java.io.*;
 import java.util.List;
 
 public class CSVUtils {
@@ -23,7 +22,4 @@ public class CSVUtils {
         sb.append("\n");
         writer.write(sb.toString());
     }
-
-
-
 }

@@ -1,3 +1,2 @@
 
-Sneaker{id=1, name='1', brand='1', color='1', sport='1', size=1.0, price=1.0, quantity=1}
-Sneaker{id=2, name='1', brand='1', color='11', sport='11', size=1.0, price=1.0, quantity=1}
+1,Nike_Air_Max,Nike,White,Running,11.0,60.0,10

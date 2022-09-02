@@ -1,3 +1,2 @@
 
-Whiskey{id=1, brand='1', description='1', size=1.0, price=1.0, quantity=1}
-Whiskey{id=2, brand='1', description='1', size=1.0, price=1.0, quantity=1}
+1,Jack_Daniel's,The_finest_whiskey_in_the_world,10.0,15.0,10
